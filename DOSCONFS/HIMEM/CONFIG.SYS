@@ -1,0 +1,16 @@
+FILES=30
+BUFFERS=10
+SHELL=\COMMAND.COM /P
+
+REM Loading EMM386 without HIMEM.SYS seems to be meaningless.
+DEVICE=A:\WINDOWS\HIMEM.SYS
+
+REM DEVICE=A:\DOS\EMM386.EXE /UMB /P=64
+REM This was the original command that either dos or windows was using.
+REM    It limits the EMS memory to 64 (pages...?) so that the rest can be
+REM    used by software that uses XMS.
+
+DEVICE=A:\DOS\EMM386.EXE /UMB
+REM LASTDRIVE=Q
+DOS=HIGH,UMB
+
