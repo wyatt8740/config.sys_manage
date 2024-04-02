@@ -43,9 +43,9 @@ running on a PC-98. They may have drive letter A hardcoded in places.
 ### Dependencies
 
 The only potentially non-trivial dependency (depending on DOS version) is
-`CHOICE.EXE`. A version of this program is included in MS-DOS version 6
-(including NEC's PC-9801 version of 6.2), but not necessarily in older
-releases (like 3.3).
+`CHOICE`. A version of this program is included in (as a built-in?) in MS-DOS
+version 6 (including NEC's PC-9801 version of 6.2), but not necessarily in
+older releases such as 3.3.
 
 The `UTILS\CHOICE.EXE` program contained in this repository is a free software
 (GPL2) implementation of DOS version 6's `CHOICE` command; I suggest you just

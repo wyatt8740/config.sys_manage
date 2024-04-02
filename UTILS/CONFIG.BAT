@@ -5,15 +5,17 @@ echo.  Choose a DOS config profile:
 echo.
 echo. 1) Full (Normal)
 echo. 2) Himem (Games)
-echo. 3) Minimal
+echo. 3) Himem + Mouse (Games)
+echo. 4) Minimal
 echo. 0) Quit without making changes
 echo.
 echo.
 echo.
 choice /c:1230 /n Make your selection: 
 
-if errorlevel 4 goto leave
-if errorlevel 3 goto minimal
+if errorlevel 5 goto leave
+if errorlevel 4 goto minimal
+if errorlevel 3 goto himouse
 if errorlevel 2 goto himem
 if errorlevel 1 goto normal
 
@@ -27,6 +29,12 @@ goto checkcnf
 echo Setting up for "Himem" boot.
 set CONFFILE=\dosconfs\himem\config.sys
 set AUTOEX=\dosconfs\himem\autoexec.bat
+goto checkcnf
+
+:himouse
+echo Setting up for "Himem" boot.
+set CONFFILE=\dosconfs\himouse\config.sys
+set AUTOEX=\dosconfs\himouse\autoexec.bat
 goto checkcnf
 
 :minimal
