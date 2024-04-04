@@ -11,7 +11,7 @@ echo. 0) Quit without making changes
 echo.
 echo.
 echo.
-choice /c:1230 /n Make your selection: 
+choice /c:12340 /n Make your selection: 
 
 if errorlevel 5 goto leave
 if errorlevel 4 goto minimal
