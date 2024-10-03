@@ -4,31 +4,39 @@ cls
 echo.  Choose a DOS config profile:
 echo.
 echo. 1) Full (Normal and/or Windows)
-echo. 2) Himem (Games)
-echo. 3) Himem + CD-ROM
-echo. 4) Himem + Mouse (Games)
-echo. 5) Himem + Mouse + CD-ROM
-echo. 6) CD-ROM Only
-echo. 7) Minimal
+echo. 2) Fresh Windows 3.1
+echo. 3) Himem (Games)
+echo. 4) Himem + CD-ROM
+echo. 5) Himem + Mouse (Games)
+echo. 6) Himem + Mouse + CD-ROM
+echo. 7) CD-ROM Only
+echo. 8) Minimal
 echo. 0) Quit without making changes
 echo.
 echo.
 echo.
-choice /c:12345670 /n Make your selection: 
+choice /c:123456780 /n Make your selection: 
 
-if errorlevel 8 goto leave
-if errorlevel 7 goto minimal
-if errorlevel 6 goto cdrom
-if errorlevel 5 goto himouscd
-if errorlevel 4 goto himouse
-if errorlevel 3 goto himemcd
-if errorlevel 2 goto himem
+if errorlevel 9 goto leave
+if errorlevel 8 goto minimal
+if errorlevel 7 goto cdrom
+if errorlevel 6 goto himouscd
+if errorlevel 5 goto himouse
+if errorlevel 4 goto himemcd
+if errorlevel 3 goto himem
+if errorlevel 2 goto winfresh
 if errorlevel 1 goto normal
 
 :normal
 echo Setting up for "Full/Normal" boot.
 set CONFFILE=\dosconfs\full\config.sys
 set AUTOEX=\dosconfs\full\autoexec.bat
+goto checkcnf
+
+:winfresh
+echo Setting up for "Windows (fresh)" boot.
+set CONFFILE=\dosconfs\win\config.sys
+set AUTOEX=\dosconfs\win\autoexec.bat
 goto checkcnf
 
 :himem
