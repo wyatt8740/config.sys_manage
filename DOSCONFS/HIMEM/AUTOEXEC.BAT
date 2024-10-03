@@ -7,9 +7,9 @@ REM autoexec file in one of the subdirectories of \DOSCONFS .
 
 REM YOU HAVE BEEN WARNED!!!!!
 
-PATH A:\UTILS;A:\DEV\BIN;A:\WINDOWS;A:\DOS;A:\;A:\JED
-
 SET TEMP=A:\DOS
 SET DOSDIR=A:\DOS
 
+PATH A:\UTILS;A:\DEV\BIN;A:\WINDOWS;A:\DOS;A:\;A:\JED;A:\UTILS\EMACS
+REM Emacs Stuff
 echo on
