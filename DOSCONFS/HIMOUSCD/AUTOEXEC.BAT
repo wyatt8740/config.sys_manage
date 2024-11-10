@@ -6,15 +6,12 @@ REM config profiles, unless changes are also saved to the appropriate
 REM autoexec file in one of the subdirectories of \DOSCONFS .
 REM YOU HAVE BEEN WARNED!!!!!
 
-SET TEMP=A:\DOS
-SET DOSDIR=A:\DOS
-
 echo Starting CD Driver (mscdex)
 A:\DOS\MSCDEX.EXE /D:CD_101 /L:Q
 
 REM Load mouse driver here
 A:\DOS\MOUSE.COM
 
-PATH A:\UTILS;A:\DEV\BIN;A:\WINDOWS;A:\DOS;A:\;A:\JED;A:\UTILS\EMACS;B:\DEV\TASM;B:\DEV\TC
-REM Emacs Stuff
-echo on
+REM Common environment variable stuff
+REM Autoexec will not be returned to when this ends, so make sure this is last!
+A:\DOSCONFS\ENV.BAT
