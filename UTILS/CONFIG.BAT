@@ -82,12 +82,25 @@ echo Quitting without making changes!
 goto end
 
 :inst1
-REM Pre-condition: %CONFFILE% must have been verified to exist!
-REM Pre-condition: %CONFFILE% and %AUTOEX% must have been defined/set!
-REM First, back up existing CONFIG.SYS (if present):
+REM    Pre-condition: %CONFFILE% must have been verified to exist!
+REM    Pre-condition: %CONFFILE% and %AUTOEX% must have been defined/set!
+REM    First, back up existing CONFIG.SYS (if present):
 if exist \CONFIG.SYS move /Y \CONFIG.SYS \CONFIG.BAK
-copy /Y %CONFFILE% \CONFIG.SYS
+REM    copy /Y %CONFFILE% \CONFIG.SYS
+if exist \dosconfs\confsys.top goto maketop
+goto makeempt
+:maketop
+type \dosconfs\confsys.top > \CONFIG.SYS
+goto confmade
+:makeempt
+echo REM Note: no file \dosconfs\confsys.top was found. > \CONFIG.SYS
+:confmade
+REM    insert a new line to ensure that nothing weird happens with file
+REM    concatenation
+REM    echo >> \CONFIG.SYS
+type %CONFFILE% >> \CONFIG.SYS
 echo Created CONFIG.SYS successfully.
+
 if exist %AUTOEX% goto :inst2
 echo Warning: %AUTOEX% does not seem to exist! Skipping AUTOEXEC.BAT creation.
 goto end

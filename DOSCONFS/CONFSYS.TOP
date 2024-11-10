@@ -1,0 +1,6 @@
+
+REM common portion of config file
+FILES=30
+REM /E:384 sets the environment space size (default was 256 in DOS 5 and up)
+SHELL=\COMMAND.COM /P /E:256
+
